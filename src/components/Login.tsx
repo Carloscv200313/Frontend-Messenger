@@ -26,10 +26,10 @@ export const Login = () => {
         //console.log("Datos enviados:", formData);
         //console.log("Respuesta del servidor:", data);
         if(data._id){
-            //const nombre = data.nombre.split(" ").filter((_, i) => i === 0 || i === 2).join("-").toUpperCase();
+            const nombre = data.nombre.split(" ").filter((_: unknown, i: unknown) => i === 0 || i === 2).join("-");
             //console.log(nombre)
-            localStorage.setItem("idUser",data._id)
-            router.push("/mensajes")
+            sessionStorage.setItem("idUser",data._id)
+            router.push(`/${nombre}`)
         }else{
             alert(data.message)
         }
@@ -51,6 +51,7 @@ export const Login = () => {
                         onChange={handleChange}
                         className="border p-2 rounded-md"
                         required
+                        autoComplete="username"
                     />
                 </label>
                 <label className="flex flex-col">
@@ -63,6 +64,7 @@ export const Login = () => {
                         onChange={handleChange}
                         className="border p-2 rounded-md"
                         required
+                        autoComplete="current-password"
                     />
                 </label>
                 <button
