@@ -23,9 +23,11 @@ export const Login = () => {
             body: JSON.stringify(formData),
         });
         const data = await response.json();
-        console.log("Datos enviados:", formData);
-        console.log("Respuesta del servidor:", data);
+        //console.log("Datos enviados:", formData);
+        //console.log("Respuesta del servidor:", data);
         if(data._id){
+            //const nombre = data.nombre.split(" ").filter((_, i) => i === 0 || i === 2).join("-").toUpperCase();
+            //console.log(nombre)
             localStorage.setItem("idUser",data._id)
             router.push("/mensajes")
         }else{

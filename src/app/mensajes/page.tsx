@@ -4,8 +4,7 @@ import { useEffect } from "react";
 export default function Home() {
     useEffect(() => {
         const id = localStorage.getItem("idUser");
-        console.log(id);
-
+        //console.log(id);
         const response = async () => {
             const datos = await fetch("http://localhost:4000/users", {
                 method: "POST",
@@ -18,7 +17,6 @@ export default function Home() {
             const data = await datos.json();
             console.log(data);
         };
-
         response();
     }, []);
 
